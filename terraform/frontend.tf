@@ -2,8 +2,8 @@
 resource "aws_instance" "React_app"{
   ami                         = "ami-0d947e680ad5f6093"
   instance_type               = "t3.micro"
-  subnet_id                   = aws_subnet.public-subnet
-  vpc_security_group_ids      = aws_security_group.allow_tls
+  subnet_id                   = aws_subnet.public-subnet.id
+  vpc_security_group_ids      = [aws_security_group.allow_tls.id]
   iam_instance_profile        = "EC2-Admin"
 } 
 
