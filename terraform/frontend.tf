@@ -5,6 +5,10 @@ resource "aws_instance" "React_app"{
   subnet_id                   = aws_subnet.public-subnet.id
   vpc_security_group_ids      = [aws_security_group.allow_tls.id]
   iam_instance_profile        = "EC2-Admin"
+
+   tags = {
+    Name = "React_app"
+  }
 } 
 
 resource "aws_security_group" "allow_tls" {
